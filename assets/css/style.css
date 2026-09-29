@@ -203,6 +203,96 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
+   3.1 INTRO EDITORIAL SECTION (IMAGE LEFT, CONTENT RIGHT)
+   -------------------------------------------------------------------------- */
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.intro-image-wrapper {
+  position: relative;
+}
+
+.intro-main-img {
+  width: 100%;
+  height: clamp(420px, 52vh, 560px);
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 20px 45px rgba(11, 61, 46, 0.12);
+}
+
+.intro-floating-badge {
+  position: absolute;
+  bottom: 24px;
+  right: -20px;
+  background: rgba(8, 28, 23, 0.9);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(232, 184, 109, 0.4);
+  padding: 1.1rem 1.5rem;
+  border-radius: var(--radius-lg);
+  color: var(--color-white);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.intro-badge-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.intro-features-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+  margin: 1.75rem 0 2.25rem;
+}
+
+.intro-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-family: var(--font-accent);
+}
+
+.intro-feature-item svg {
+  color: var(--color-secondary-dark);
+  flex-shrink: 0;
+}
+
+@media (max-width: 991px) {
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .intro-floating-badge {
+    right: 15px;
+    bottom: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .intro-features-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
    4. LAYOUT UTILITIES
    -------------------------------------------------------------------------- */
 .container {
@@ -944,7 +1034,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   11. HORIZONTAL PINNED SLIDER
+   11. HORIZONTAL PINNED SLIDER (3 CARDS AT A TIME)
    -------------------------------------------------------------------------- */
 .horizontal-scroll-section {
   position: relative;
@@ -959,7 +1049,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .horizontal-scroll-header {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
 }
 
 .horizontal-track-wrapper {
@@ -978,13 +1069,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .horizontal-card {
-  width: clamp(300px, 25vw, 380px);
-  height: clamp(380px, 50vh, 460px);
+  width: calc((100vw - 8vw - 4rem) / 3);
+  min-width: 340px;
+  max-width: 480px;
+  height: clamp(450px, 56vh, 530px);
   flex-shrink: 0;
   position: relative;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  transition: transform var(--transition-smooth);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.horizontal-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  border-color: rgba(232, 184, 109, 0.4);
 }
 
 .horizontal-card img {
@@ -1001,12 +1102,33 @@ h1, h2, h3, h4, h5, h6 {
 .horizontal-card .card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(8, 28, 23, 0.1) 0%, rgba(8, 28, 23, 0.5) 50%, rgba(8, 28, 23, 0.95) 100%);
-  padding: 1.75rem;
+  background: linear-gradient(180deg, rgba(8, 28, 23, 0) 0%, rgba(8, 28, 23, 0.5) 42%, rgba(8, 28, 23, 0.96) 100%);
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   color: var(--color-white);
+  z-index: 2;
+}
+
+.horizontal-card .card-overlay h3 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--color-white) !important;
+  margin: 0.5rem 0 0.6rem;
+  font-family: var(--font-serif);
+  line-height: 1.2;
+}
+
+.horizontal-card .card-overlay p {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin-bottom: 1.25rem;
+}
+
+.horizontal-card .card-overlay .btn {
+  width: 100%;
 }
 
 /* --------------------------------------------------------------------------
@@ -1666,3 +1788,141 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-secondary);
   border-color: var(--color-primary);
 }
+
+/* --------------------------------------------------------------------------
+   19. BRAND INTRO / ABOUT SPLIT SECTION
+   -------------------------------------------------------------------------- */
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: stretch;
+}
+
+.intro-image-wrapper {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  overflow: visible;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.intro-main-img-box {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(11, 61, 46, 0.25);
+  height: 100%;
+  width: 100%;
+  flex: 1;
+}
+
+.intro-main-img {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.intro-main-img-box:hover .intro-main-img {
+  transform: scale(1.04);
+}
+
+.intro-floating-badge {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  background: rgba(11, 61, 46, 0.95);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(232, 184, 109, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 0.9rem 1.25rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  z-index: 3;
+}
+
+.intro-badge-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.intro-floating-badge h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+  color: #fff;
+  font-family: var(--font-accent);
+}
+
+.intro-floating-badge p {
+  font-size: 0.78rem;
+  color: var(--color-secondary);
+  margin: 0;
+  font-family: var(--font-accent);
+}
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.intro-features-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1.75rem 0 2rem;
+}
+
+.intro-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  font-family: var(--font-accent);
+}
+
+.intro-feature-item svg {
+  color: var(--color-secondary-dark);
+  flex-shrink: 0;
+}
+
+@media (max-width: 991px) {
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .intro-main-img-box {
+    min-height: 380px;
+  }
+  .intro-floating-badge {
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .intro-features-list {
+    grid-template-columns: 1fr;
+  }
+}
+

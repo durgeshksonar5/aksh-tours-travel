@@ -162,15 +162,15 @@ function initHorizontalScroll() {
   
   if (!horizontalSection || !track || window.innerWidth < 1024) return;
 
-  const scrollDistance = track.scrollWidth - window.innerWidth + 120;
+  const getScrollDistance = () => track.scrollWidth - window.innerWidth + (window.innerWidth * 0.08);
 
   gsap.to(track, {
-    x: -scrollDistance,
+    x: () => -getScrollDistance(),
     ease: 'none',
     scrollTrigger: {
       trigger: horizontalSection,
       start: 'top top',
-      end: () => `+=${scrollDistance}`,
+      end: () => `+=${getScrollDistance()}`,
       pin: true,
       scrub: 1,
       invalidateOnRefresh: true,
