@@ -1,0 +1,336 @@
+/* ==========================================================================
+   AKSH TOURS & TRAVELS - RESPONSIVE & BREAKPOINT STYLES
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. LARGE DESKTOP (1440px+)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1440px) {
+  :root {
+    --container-width: 1380px;
+    --container-wide: 1600px;
+  }
+  
+  .bento-grid-8 {
+    grid-auto-rows: 270px;
+  }
+  
+  .hero-content {
+    max-width: 1040px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. STANDARD DESKTOP & LAPTOP (1024px - 1439px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1280px) {
+  .bento-grid-8 {
+    grid-auto-rows: 230px;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr 1.2fr;
+    gap: 2rem;
+  }
+  
+  .quick-search-form {
+    grid-template-columns: 1.2fr 1fr 1fr 1fr auto;
+    gap: 0.85rem;
+  }
+}
+
+@media (max-width: 1080px) {
+  .nav-menu {
+    gap: 1.15rem;
+  }
+  
+  .nav-link {
+    font-size: 0.85rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. TABLET LANDSCAPE & PORTRAIT (768px - 1023px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1023px) {
+  :root {
+    --header-height: 76px;
+  }
+  
+  /* Navbar changes */
+  .nav-menu, .nav-cta-group .btn-emerald {
+    display: none;
+  }
+  
+  .nav-toggle-btn {
+    display: flex;
+  }
+  
+  /* Bento Grid Tablet Adaptations */
+  .bento-grid-8 {
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 220px;
+  }
+  
+  .bento-col-12 { grid-column: span 6; }
+  .bento-col-8  { grid-column: span 6; }
+  .bento-col-7  { grid-column: span 6; }
+  .bento-col-6  { grid-column: span 6; }
+  .bento-col-5  { grid-column: span 6; }
+  .bento-col-4  { grid-column: span 3; }
+  .bento-col-3  { grid-column: span 3; }
+  
+  /* Quick search card */
+  .quick-search-wrapper {
+    margin-top: -2rem;
+  }
+  
+  .quick-search-form {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .quick-search-form .btn-primary {
+    grid-column: span 2;
+  }
+  
+  /* Timeline Grid */
+  .timeline-track {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 1.5rem;
+  }
+  
+  .timeline-track::before, .timeline-progress-bar {
+    display: none;
+  }
+  
+  /* Stats Strip */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 1.5rem;
+  }
+  
+  /* Split Showcase */
+  .split-showcase-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .split-visual-col {
+    position: relative;
+    height: 450px;
+  }
+  
+  .split-text-col {
+    padding: 3rem 1.5rem;
+  }
+  
+  .split-showcase-item {
+    min-height: auto;
+    opacity: 1;
+    margin-bottom: 3rem;
+  }
+  
+  /* Footer Grid */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  
+  .footer-brand {
+    grid-column: span 2;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-group-full {
+    grid-column: span 1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. MOBILE (320px - 767px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  :root {
+    --header-height: 70px;
+  }
+  
+  .navbar-container {
+    padding: 0.5rem 0.85rem 0.5rem 1.15rem;
+  }
+  
+  .brand-logo-text .main {
+    font-size: 1.1rem;
+  }
+  
+  .brand-logo-text .sub {
+    font-size: 0.55rem;
+  }
+  
+  /* Bento Grid Mobile */
+  .bento-grid-8 {
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(260px, auto);
+  }
+  
+  .bento-col-12, .bento-col-8, .bento-col-7, .bento-col-6, 
+  .bento-col-5, .bento-col-4, .bento-col-3 {
+    grid-column: span 1;
+    min-height: 280px;
+  }
+  
+  .bento-row-1, .bento-row-2, .bento-row-3 {
+    grid-row: span 1;
+  }
+  
+  /* Hero section adjustments */
+  .hero-section {
+    padding-top: calc(var(--header-height) + 1.5rem);
+    padding-bottom: 4.5rem;
+    min-height: auto;
+  }
+  
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+  
+  .quick-search-wrapper {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .quick-search-card {
+    padding: 1.5rem 1.25rem;
+  }
+  
+  .quick-search-form {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+  
+  .quick-search-form .btn-primary {
+    grid-column: span 1;
+    width: 100%;
+  }
+  
+  /* Section Split Header */
+  .section-header-split {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  /* Timeline Grid Mobile */
+  .timeline-track {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .timeline-node {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+    margin-bottom: 0.85rem;
+  }
+  
+  /* Horizontal scroll section converted for touch mobile */
+  .horizontal-track-wrapper {
+    height: auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 1.5rem 0;
+  }
+  
+  .horizontal-track {
+    padding: 0 1rem;
+    gap: 1.25rem;
+  }
+  
+  .horizontal-card {
+    width: 280px;
+    height: 420px;
+  }
+  
+  /* Stats Grid */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 1rem;
+  }
+  
+  .stat-number {
+    font-size: 2.3rem;
+  }
+  
+  /* Footer Mobile */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .footer-brand {
+    grid-column: span 1;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  
+  /* Floating Action Buttons */
+  .floating-actions-container {
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+  
+  .fab-whatsapp {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .fab-back-to-top {
+    width: 44px;
+    height: 44px;
+  }
+  
+  /* Lightbox Mobile */
+  .lightbox-modal {
+    padding: 1rem;
+  }
+  
+  .lightbox-prev {
+    left: 5px;
+  }
+  
+  .lightbox-next {
+    right: 5px;
+  }
+  
+  .lightbox-close {
+    top: 5px;
+    right: 5px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. ACCESSIBILITY & PREFERS REDUCED MOTION
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .marquee-track {
+    animation: none;
+  }
+}
