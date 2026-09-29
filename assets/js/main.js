@@ -122,7 +122,7 @@ function initCustomCursor() {
     });
     el.addEventListener('mouseleave', () => {
       cursor.classList.remove('active');
-      follower.style.borderColor = 'rgba(232, 184, 109, 0.7)';
+      follower.style.borderColor = 'rgba(218, 162, 39, 0.7)';
       follower.style.transform = `translate3d(${followerX - 21}px, ${followerY - 21}px, 0) scale(1)`;
     });
   });
@@ -322,8 +322,8 @@ function showToast(message, type = 'info') {
   }
 
   const toast = document.createElement('div');
-  const bgColor = type === 'success' ? '#0B3D2E' : type === 'error' ? '#842029' : '#081C17';
-  const borderColor = type === 'success' ? '#E8B86D' : '#F5C2C7';
+  const bgColor = type === 'success' ? '#065498' : type === 'error' ? '#D32F2F' : '#031F43';
+  const borderColor = type === 'success' ? '#DAA227' : '#F5C2C7';
   
   toast.style.cssText = `
     background: ${bgColor};

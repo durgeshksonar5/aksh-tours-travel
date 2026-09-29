@@ -39,9 +39,9 @@ function initHeroThreeScene() {
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
 
-    // Warm Gold (#E8B86D) and Emerald Emerald (#135843)
-    const color1 = new THREE.Color(0xE8B86D);
-    const color2 = new THREE.Color(0x135843);
+    // AKSH Brand Colors: Gold (#DAA227), Sky Blue (#0790DB), Primary Blue (#065498)
+    const color1 = new THREE.Color(0xDAA227);
+    const color2 = new THREE.Color(0x0790DB);
     const color3 = new THREE.Color(0xFFFFFF);
 
     for (let i = 0; i < particleCount; i++) {
@@ -66,7 +66,7 @@ function initHeroThreeScene() {
     const ctx = canvas.getContext('2d');
     const grad = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
     grad.addColorStop(0, 'rgba(255,255,255,1)');
-    grad.addColorStop(0.3, 'rgba(232,184,109,0.8)');
+    grad.addColorStop(0.3, 'rgba(7,144,219,0.8)');
     grad.addColorStop(1, 'rgba(0,0,0,0)');
     ctx.fillStyle = grad;
     ctx.beginPath();
