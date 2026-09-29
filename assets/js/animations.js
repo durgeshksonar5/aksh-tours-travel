@@ -6,6 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initLenisScroll();
   initGsapAnimations();
+  initHeroTypewriter();
   initHorizontalScroll();
   initVerticalSplitShowcase();
   initTimelineProgress();
@@ -263,3 +264,56 @@ function initStatsCounter() {
     }
   });
 }
+
+/* ==========================================
+   7. HERO TYPEWRITER TRANSITION
+   ========================================== */
+function initHeroTypewriter() {
+  const typedEl = document.querySelector('.typed-text');
+  if (!typedEl) return;
+
+  const phrases = [
+    'Our Expertise.',
+    'Timeless Stories.',
+    'Bespoke Luxury.',
+    'Unforgettable Escapes.',
+    'Authentic Memories.'
+  ];
+
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let typingSpeed = 90;
+
+  // Clear static placeholder
+  typedEl.textContent = '';
+
+  function type() {
+    const currentPhrase = phrases[phraseIndex];
+
+    if (isDeleting) {
+      typedEl.textContent = currentPhrase.substring(0, charIndex - 1);
+      charIndex--;
+      typingSpeed = 45;
+    } else {
+      typedEl.textContent = currentPhrase.substring(0, charIndex + 1);
+      charIndex++;
+      typingSpeed = 95;
+    }
+
+    if (!isDeleting && charIndex === currentPhrase.length) {
+      typingSpeed = 2200; // Pause when phrase is fully typed
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      typingSpeed = 400; // Pause before typing next phrase
+    }
+
+    setTimeout(type, typingSpeed);
+  }
+
+  // Initial delay after hero entrance completes
+  setTimeout(type, 1000);
+}
+

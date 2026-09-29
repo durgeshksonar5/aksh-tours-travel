@@ -54,7 +54,11 @@
    -------------------------------------------------------------------------- */
 @media (max-width: 1023px) {
   :root {
-    --header-height: 76px;
+    --header-height: 86px;
+  }
+  
+  .brand-logo-img {
+    height: 54px;
   }
   
   /* Navbar changes */
@@ -153,11 +157,16 @@
    -------------------------------------------------------------------------- */
 @media (max-width: 767px) {
   :root {
-    --header-height: 70px;
+    --header-height: 78px;
   }
   
   .navbar-container {
-    padding: 0.5rem 0.85rem 0.5rem 1.15rem;
+    padding: 0.6rem 0.95rem 0.6rem 1.25rem;
+    min-height: 58px;
+  }
+  
+  .brand-logo-img {
+    height: 48px;
   }
   
   .brand-logo-text .main {
@@ -218,6 +227,18 @@
   .quick-search-form .btn-primary {
     grid-column: span 1;
     width: 100%;
+  }
+
+  .form-control,
+  .search-field-input,
+  .search-field-select,
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  select,
+  textarea {
+    font-size: 16px !important;
   }
   
   /* Section Split Header */
