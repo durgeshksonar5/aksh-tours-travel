@@ -8,7 +8,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
@@ -96,7 +96,9 @@
       <div class="brand-logo">
         <img src="assets/aksh-logo-transferent.png" alt="Aksh Tours & Travels" class="brand-logo-img">
       </div>
-      <button class="mobile-drawer-close btn-glass-dark btn-icon-round" aria-label="Close navigation menu">✕</button>
+      <button class="mobile-drawer-close" aria-label="Close navigation menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
     </div>
     <ul class="mobile-nav-list">
       <li><a href="index.html" class="mobile-nav-link">Home</a></li>
@@ -141,22 +143,22 @@
     <section class="section-padding" id="planner">
       <div class="container">
         
-        <div style="display: grid; grid-template-columns: 1fr 1.8fr; gap: 3rem; align-items: start;">
+        <div class="contact-grid">
           
           <!-- Left Column: Direct Contact Info -->
-          <div>
+          <div class="contact-info-column">
             <span class="eyebrow eyebrow-dark">Direct Assistance</span>
-            <h2 class="section-title" style="font-size: 2rem; margin-bottom: 1.5rem;">Speak with an Expert</h2>
+            <h2 class="section-title" style="font-size: clamp(1.75rem, 3.5vw, 2.2rem); margin-bottom: 1.25rem;">Speak with an Expert</h2>
             <p class="lead-text" style="font-size: 1rem; margin-bottom: 2rem;">
               We are available 7 days a week to help with new bookings, custom itineraries, flight connections, and destination advice.
             </p>
 
-            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
               
               <!-- WhatsApp Card -->
-              <div class="solid-card" style="padding: 1.75rem; border-left: 4px solid #25D366;">
-                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;">
-                  <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(37,211,102,0.15); display: flex; align-items: center; justify-content: center; color: #25D366;">
+              <div class="contact-card contact-card-whatsapp">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                  <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(37,211,102,0.15); display: flex; align-items: center; justify-content: center; color: #25D366; flex-shrink: 0;">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
                   </div>
                   <div>
@@ -168,17 +170,18 @@
               </div>
 
               <!-- Phone & Email Card -->
-              <div class="solid-card" style="padding: 1.75rem;">
+              <div class="contact-card">
                 <h4 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--color-primary);">Direct Desk Contacts</h4>
                 
                 <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.92rem;">
                   <div>
                     <strong>📞 Phone Consultation:</strong> <br>
-                    <span style="color: var(--color-text-muted);">+91 98765 XXXXX (Inquiries & Support)</span>
+                    <a href="tel:+919876543210" style="color: var(--color-primary); font-weight: 600; text-decoration: none;">+91 98765 43210</a>
+                    <span style="color: var(--color-text-muted); font-size: 0.82rem; display: block;">(Inquiries & Priority Support)</span>
                   </div>
                   <div>
                     <strong>✉️ Official Email:</strong> <br>
-                    <span style="color: var(--color-text-muted);">support@akshtours.com</span>
+                    <a href="mailto:support@akshtours.com" style="color: var(--color-primary); font-weight: 600; text-decoration: none;">support@akshtours.com</a>
                   </div>
                   <div>
                     <strong>🕒 Consultation Hours:</strong> <br>
@@ -188,12 +191,12 @@
               </div>
 
               <!-- Office Address Card -->
-              <div class="solid-card" style="padding: 1.75rem;">
+              <div class="contact-card">
                 <h4 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--color-primary);">📍 Office Location</h4>
-                <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6;">
-                  Aksh Tours & Travels Head Office <br>
-                  Premium Travel Hub, Commercial Complex <br>
-                  (Near City Center), India
+                <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">
+                  Shop no -1, Sai Samartha Nagar,<br>
+                  Vishal Lawns Road,<br>
+                  Vadgaon Maval - 412106
                 </p>
               </div>
 
@@ -303,17 +306,15 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="brand-logo" style="margin-bottom: 1rem; color: #FFFFFF;">
-            <div class="brand-logo-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"/></svg>
-            </div>
-            <div class="brand-logo-text">
-              <span class="main">Aksh</span>
-              <span class="sub">Tours & Travels</span>
-            </div>
-          </div>
+          <a href="index.html" class="footer-brand-logo" aria-label="Aksh Tours and Travels Home">
+            <img src="assets/aksh-logo-transferent.png" alt="Aksh Tours & Travels" class="footer-logo-img">
+          </a>
           <p class="footer-tagline">Journeys Crafted. Memories Forever.</p>
           <p class="footer-desc">A premium travel curation agency committed to bespoke journeys and transparent advice.</p>
+          <p class="footer-address">
+            <span class="address-icon">📍</span>
+            <span>Shop no -1, Sai Samartha Nagar, Vishal Lawns Road, Vadgaon Maval 412106</span>
+          </p>
         </div>
 
         <div>

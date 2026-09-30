@@ -62,8 +62,8 @@
   }
   
   /* Navbar changes */
-  .nav-menu, .nav-cta-group .btn-emerald {
-    display: none;
+  .nav-menu, .nav-cta-group .btn, .nav-cta-group a {
+    display: none !important;
   }
   
   .nav-toggle-btn {
@@ -150,6 +150,11 @@
   .form-group-full {
     grid-column: span 1;
   }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -199,6 +204,12 @@
     padding-bottom: 4.5rem;
     min-height: auto;
   }
+
+  .page-hero {
+    min-height: 450px;
+    padding-top: calc(var(--header-height) + 3.5rem);
+    padding-bottom: 5.5rem;
+  }
   
   .hero-cta-group {
     flex-direction: column;
@@ -208,6 +219,19 @@
   
   .hero-cta-group .btn {
     width: 100%;
+  }
+
+  .intro-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.85rem;
+  }
+
+  .intro-cta-group .btn {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.85rem 1.5rem;
   }
   
   .quick-search-wrapper {
@@ -239,6 +263,16 @@
   select,
   textarea {
     font-size: 16px !important;
+  }
+
+  .trip-planner-card {
+    padding: 1.75rem 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .contact-card {
+    padding: 1.35rem 1.15rem;
+    border-radius: var(--radius-lg);
   }
   
   /* Section Split Header */
@@ -297,6 +331,11 @@
   
   .footer-brand {
     grid-column: span 1;
+  }
+
+  .footer-logo-img {
+    height: 46px;
+    max-width: 165px;
   }
   
   .footer-bottom {
