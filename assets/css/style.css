@@ -328,11 +328,14 @@ h6 {
   display: inline-block;
   margin-top: 0.35rem;
   font-style: italic;
-  font-weight: 600;
-  color: var(--color-gold-light);
-  background: var(--gradient-gold);
+  font-weight: 700;
+  color: #FFC837;
+  background: linear-gradient(135deg, #FFF1A8 0%, #FFC837 40%, #FF9900 80%, #FFE57F 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 18px rgba(255, 200, 55, 0.5));
 }
 
 .hero-description {
@@ -1238,50 +1241,68 @@ h6 {
 .experiences-glass-section {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, #F6FAFD 0%, #EBF4FC 50%, #FAF6EE 100%);
+  background-color: #EBF4FC;
 }
 
-.experiences-glass-section::before,
-.experiences-glass-section::after {
-  content: '';
+.experiences-bg {
   position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  filter: blur(75px);
+  inset: 0;
   z-index: 0;
 }
 
-.experiences-glass-section::before {
-  top: 15%;
-  left: 3%;
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(circle, rgba(66, 184, 245, 0.28) 0%, rgba(20, 121, 209, 0.08) 60%, transparent 80%);
+.experiences-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  filter: brightness(0.98) contrast(1.05) saturate(1.1);
+  transform: scale(1.0);
+  transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.experiences-glass-section::after {
-  bottom: 12%;
-  right: 4%;
-  width: 460px;
-  height: 460px;
-  background: radial-gradient(circle, rgba(217, 164, 65, 0.22) 0%, rgba(242, 201, 117, 0.06) 60%, transparent 80%);
+.experiences-glass-section:hover .experiences-bg-img {
+  transform: scale(1.03);
+}
+
+.experiences-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.65) 0%,
+    rgba(255, 255, 255, 0.30) 35%,
+    rgba(240, 246, 252, 0.35) 65%,
+    rgba(255, 255, 255, 0.70) 100%
+  );
+  z-index: 1;
 }
 
 .experiences-glass-section .container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+}
+
+.experiences-glass-section .section-title {
+  color: #072244;
+  text-shadow: 0 2px 16px rgba(255, 255, 255, 0.95), 0 1px 4px rgba(255, 255, 255, 0.85);
+}
+
+.experiences-glass-section .lead-text {
+  color: #163252;
+  font-weight: 500;
+  text-shadow: 0 1px 12px rgba(255, 255, 255, 0.95);
 }
 
 .travel-style-glass-card {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.45) 100%);
-  backdrop-filter: blur(24px) saturate(190%);
-  -webkit-backdrop-filter: blur(24px) saturate(190%);
-  border: 1.5px solid rgba(255, 255, 255, 0.90);
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(20px) saturate(190%);
+  -webkit-backdrop-filter: blur(20px) saturate(190%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
   border-radius: var(--radius-xl);
   padding: 2.25rem 2rem;
   box-shadow: 
-    0 20px 40px -12px rgba(11, 37, 69, 0.08),
-    0 4px 14px rgba(11, 37, 69, 0.03),
+    0 20px 45px -12px rgba(11, 37, 69, 0.14),
+    0 4px 16px rgba(11, 37, 69, 0.05),
     inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 1),
     inset 0 -1px 2px 0 rgba(20, 121, 209, 0.04);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1306,11 +1327,11 @@ h6 {
 
 .travel-style-glass-card:hover {
   transform: translateY(-8px);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.65) 100%);
-  border-color: rgba(20, 121, 209, 0.35);
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(20, 121, 209, 0.45);
   box-shadow: 
-    0 28px 56px -12px rgba(11, 37, 69, 0.16),
-    0 0 28px rgba(20, 121, 209, 0.10),
+    0 30px 60px -12px rgba(11, 37, 69, 0.22),
+    0 0 28px rgba(20, 121, 209, 0.15),
     inset 0 2px 2px 0 rgba(255, 255, 255, 1);
 }
 
@@ -1432,6 +1453,389 @@ h6 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* ==========================================================================
+   PREMIUM INTERNATIONAL TOURS & HOLIDAYS SHOWCASE SECTION
+   ========================================================================== */
+.intl-showcase-section {
+  background-color: #F8F4EA;
+  background-image: radial-gradient(#E5DECD 1px, transparent 1px);
+  background-size: 28px 28px;
+  padding: 6.5rem 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid #E3DED2;
+  border-bottom: 1px solid #E3DED2;
+}
+
+.intl-showcase-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.intl-gold-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #C89B3C;
+  margin-bottom: 0.85rem;
+}
+
+.intl-gold-label::before,
+.intl-gold-label::after {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background-color: #C89B3C;
+  border-radius: 2px;
+}
+
+.intl-showcase-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: #111111;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.15rem;
+  text-shadow: 0 2px 10px rgba(17, 17, 17, 0.08);
+}
+
+.intl-showcase-subtitle {
+  font-family: var(--font-primary);
+  font-size: 1.05rem;
+  color: #555555;
+  line-height: 1.65;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   FEATURED DUBAI TOUR HERO CARD
+   -------------------------------------------------------------------------- */
+.intl-dubai-featured {
+  background: #111111;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 3.5rem;
+  box-shadow: 0 20px 50px rgba(17, 17, 17, 0.14);
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  position: relative;
+  border: 1px solid rgba(200, 155, 60, 0.28);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease, border-color 0.45s ease;
+}
+
+.intl-dubai-featured:hover {
+  transform: translateY(-6px);
+  border-color: #C89B3C;
+  box-shadow: 0 30px 65px rgba(17, 17, 17, 0.22), 0 0 35px rgba(200, 155, 60, 0.18);
+}
+
+.intl-dubai-media {
+  position: relative;
+  height: 100%;
+  min-height: 440px;
+  overflow: hidden;
+}
+
+.intl-dubai-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intl-dubai-featured:hover .intl-dubai-img {
+  transform: scale(1.05);
+}
+
+.intl-dubai-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg, 
+    rgba(17, 17, 17, 0.1) 0%, 
+    rgba(17, 17, 17, 0.4) 60%, 
+    rgba(17, 17, 17, 0.95) 100%
+  );
+  z-index: 1;
+}
+
+.intl-dubai-content {
+  padding: 3.5rem 3.25rem;
+  position: relative;
+  z-index: 2;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.intl-dubai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(200, 155, 60, 0.16);
+  border: 1px solid #C89B3C;
+  color: #E4C675;
+  font-family: var(--font-primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radius-pill);
+  width: fit-content;
+  margin-bottom: 1.25rem;
+}
+
+.intl-dubai-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin-bottom: 1rem;
+}
+
+.intl-dubai-desc {
+  font-family: var(--font-primary);
+  font-size: 1.02rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.65;
+  margin-bottom: 2rem;
+  max-width: 460px;
+}
+
+.intl-dubai-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn-gold-solid {
+  background: #C89B3C;
+  color: #111111;
+  font-family: var(--font-primary);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 0.85rem 1.9rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: all 0.35s ease;
+  box-shadow: 0 4px 18px rgba(200, 155, 60, 0.35);
+}
+
+.btn-gold-solid:hover {
+  background: #E4C675;
+  color: #111111;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(200, 155, 60, 0.45);
+}
+
+.btn-gold-outline {
+  background: transparent;
+  color: #FFFFFF;
+  font-family: var(--font-primary);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 0.85rem 1.9rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: all 0.35s ease;
+}
+
+.btn-gold-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #C89B3C;
+  color: #E4C675;
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   OTHER INTERNATIONAL DESTINATIONS GRID
+   -------------------------------------------------------------------------- */
+.intl-destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.intl-dest-card {
+  background: #FFFFFF;
+  border: 1px solid #E3DED2;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(17, 17, 17, 0.04);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.intl-dest-card:hover {
+  transform: translateY(-6px);
+  border-color: #C89B3C;
+  box-shadow: 0 20px 45px rgba(200, 155, 60, 0.14), 0 4px 12px rgba(17, 17, 17, 0.06);
+}
+
+.intl-dest-img-wrap {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  background: #242424;
+}
+
+.intl-dest-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intl-dest-card:hover .intl-dest-img {
+  transform: scale(1.05);
+}
+
+.intl-dest-content {
+  padding: 1.75rem 1.65rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.intl-dest-name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #111111;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.intl-dest-card:hover .intl-dest-name {
+  color: #C89B3C;
+}
+
+.intl-dest-desc {
+  font-family: var(--font-primary);
+  font-size: 0.92rem;
+  color: #666666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.intl-dest-card-footer {
+  border-top: 1px solid #EFEAE0;
+  padding-top: 1rem;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.intl-dest-link {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 700;
+  color: #111111;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.intl-dest-link svg {
+  color: #C89B3C;
+  transition: transform 0.3s ease;
+}
+
+.intl-dest-card:hover .intl-dest-link {
+  color: #C89B3C;
+}
+
+.intl-dest-card:hover .intl-dest-link svg {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE STYLES
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .intl-dubai-featured {
+    grid-template-columns: 1fr;
+  }
+  
+  .intl-dubai-media {
+    min-height: 320px;
+    height: 320px;
+  }
+  
+  .intl-dubai-media-overlay {
+    background: linear-gradient(
+      180deg, 
+      rgba(17, 17, 17, 0.1) 0%, 
+      rgba(17, 17, 17, 0.7) 60%, 
+      rgba(17, 17, 17, 0.98) 100%
+    );
+  }
+  
+  .intl-dubai-content {
+    padding: 2.5rem 2rem;
+  }
+  
+  .intl-destinations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .intl-showcase-section {
+    padding: 4.5rem 0;
+  }
+  
+  .intl-dubai-content {
+    padding: 2rem 1.5rem;
+  }
+  
+  .intl-dubai-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  
+  .intl-dubai-actions a {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .intl-destinations-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
 }
 
 /* ==========================================================================
@@ -1769,7 +2173,8 @@ h6 {
   display: inline-block;
   font-style: normal;
   font-weight: 300;
-  color: var(--color-gold-light);
+  color: #FFC837;
+  text-shadow: 0 0 10px rgba(255, 200, 55, 0.7);
   animation: cursorBlink 0.85s infinite ease-in-out;
   margin-left: 2px;
   opacity: 1;
@@ -3150,6 +3555,51 @@ h6 {
   margin: 2rem 0;
   background: var(--color-surface-blue);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+/* ==========================================================================
+   22. CLIENT MOMENTS & MEMORIES GALLERY SECTION (PURE IMAGE GALLERY)
+   ========================================================================== */
+.client-gallery-section {
+  position: relative;
+  background: linear-gradient(180deg, #F8FAFD 0%, #EEF6FC 50%, #FAF6EE 100%);
+  overflow: hidden;
+}
+
+.client-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.client-gallery-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  height: 280px;
+  background-color: var(--color-surface-blue);
+  box-shadow: 0 10px 28px rgba(11, 37, 69, 0.08);
+  border: 1px solid rgba(11, 37, 69, 0.06);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  cursor: pointer;
+}
+
+.client-gallery-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px -10px rgba(11, 37, 69, 0.20);
+  border-color: rgba(20, 121, 209, 0.40);
+}
+
+.client-gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.client-gallery-card:hover img {
+  transform: scale(1.08);
 }
 
 
