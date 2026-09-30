@@ -3564,6 +3564,16 @@ h6 {
   position: relative;
   background: linear-gradient(180deg, #F8FAFD 0%, #EEF6FC 50%, #FAF6EE 100%);
   overflow: hidden;
+  padding-top: 1.5rem;
+  padding-bottom: clamp(3rem, 5vw, 4.5rem);
+}
+
+.client-gallery-section .section-header {
+  margin-bottom: 2rem;
+}
+
+#trip-planner {
+  padding-bottom: 1.5rem;
 }
 
 .client-gallery-grid {
