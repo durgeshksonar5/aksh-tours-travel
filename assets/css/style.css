@@ -1456,23 +1456,50 @@ h6 {
 }
 
 /* ==========================================================================
-   PREMIUM INTERNATIONAL TOURS & HOLIDAYS SHOWCASE SECTION
+   PREMIUM INTERNATIONAL TOURS SHOWCASE - DUBAI HERO BANNER
    ========================================================================== */
 .intl-showcase-section {
-  background-color: #F8F4EA;
-  background-image: radial-gradient(#E5DECD 1px, transparent 1px);
-  background-size: 28px 28px;
-  padding: 6.5rem 0;
+  background-color: var(--color-dark);
+  padding: 2.5rem 0 5.5rem;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid #E3DED2;
-  border-bottom: 1px solid #E3DED2;
+  border-top: none;
+  border-bottom: none;
+  color: #FFFFFF;
+}
+
+.intl-showcase-section::before {
+  content: '';
+  position: absolute;
+  top: -150px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(217, 164, 65, 0.08) 0%, rgba(20, 121, 209, 0.03) 50%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+.intl-showcase-section::after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  left: -100px;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(20, 121, 209, 0.08) 0%, rgba(217, 164, 65, 0.03) 50%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(50px);
 }
 
 .intl-showcase-header {
   text-align: center;
-  max-width: 780px;
-  margin: 0 auto 3.5rem auto;
+  max-width: 820px;
+  margin: 0 auto 2.5rem auto;
+  position: relative;
+  z-index: 2;
 }
 
 .intl-gold-label {
@@ -1480,361 +1507,220 @@ h6 {
   align-items: center;
   gap: 0.65rem;
   font-family: var(--font-primary);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 800;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #C89B3C;
+  color: var(--color-gold-light);
+  background: rgba(217, 164, 65, 0.12);
+  border: 1px solid rgba(217, 164, 65, 0.35);
+  padding: 0.4rem 1.15rem;
+  border-radius: var(--radius-pill);
   margin-bottom: 0.85rem;
-}
-
-.intl-gold-label::before,
-.intl-gold-label::after {
-  content: '';
-  display: inline-block;
-  width: 24px;
-  height: 2px;
-  background-color: #C89B3C;
-  border-radius: 2px;
+  box-shadow: 0 4px 15px rgba(217, 164, 65, 0.12);
 }
 
 .intl-showcase-title {
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 800;
-  color: #111111;
+  color: #FFFFFF;
   line-height: 1.18;
   letter-spacing: -0.03em;
-  margin-bottom: 1.15rem;
-  text-shadow: 0 2px 10px rgba(17, 17, 17, 0.08);
+  margin-bottom: 0;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-.intl-showcase-subtitle {
-  font-family: var(--font-primary);
-  font-size: 1.05rem;
-  color: #555555;
-  line-height: 1.65;
-  margin: 0 auto;
+.intl-showcase-title .gold-gradient-text {
+  background: linear-gradient(135deg, #F9E29D 0%, #D9A441 50%, #F5CE77 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 /* --------------------------------------------------------------------------
-   FEATURED DUBAI TOUR HERO CARD
+   DUBAI PANORAMIC BACKGROUND HERO CARD
    -------------------------------------------------------------------------- */
-.intl-dubai-featured {
-  background: #111111;
-  border-radius: 24px;
+.dubai-banner-card {
+  position: relative;
+  border-radius: 28px;
   overflow: hidden;
-  margin-bottom: 3.5rem;
-  box-shadow: 0 20px 50px rgba(17, 17, 17, 0.14);
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
+  min-height: clamp(380px, 48vh, 500px);
+  border: 1px solid rgba(217, 164, 65, 0.35);
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.45), 0 0 35px rgba(217, 164, 65, 0.12);
+  display: flex;
   align-items: center;
-  position: relative;
-  border: 1px solid rgba(200, 155, 60, 0.28);
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease, border-color 0.45s ease;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.45s ease, box-shadow 0.45s ease;
 }
 
-.intl-dubai-featured:hover {
-  transform: translateY(-6px);
-  border-color: #C89B3C;
-  box-shadow: 0 30px 65px rgba(17, 17, 17, 0.22), 0 0 35px rgba(200, 155, 60, 0.18);
+.dubai-banner-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(217, 164, 65, 0.65);
+  box-shadow: 0 30px 75px rgba(0, 0, 0, 0.55), 0 0 45px rgba(217, 164, 65, 0.2);
 }
 
-.intl-dubai-media {
-  position: relative;
-  height: 100%;
-  min-height: 440px;
-  overflow: hidden;
-}
-
-.intl-dubai-img {
+.dubai-banner-bg {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.intl-dubai-featured:hover .intl-dubai-img {
-  transform: scale(1.05);
-}
-
-.intl-dubai-media-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg, 
-    rgba(17, 17, 17, 0.1) 0%, 
-    rgba(17, 17, 17, 0.4) 60%, 
-    rgba(17, 17, 17, 0.95) 100%
-  );
   z-index: 1;
 }
 
-.intl-dubai-content {
-  padding: 3.5rem 3.25rem;
-  position: relative;
+.dubai-banner-card:hover .dubai-banner-bg {
+  transform: scale(1.04);
+}
+
+.dubai-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(8, 26, 51, 0.35) 0%,
+    rgba(8, 26, 51, 0.65) 50%,
+    rgba(5, 18, 36, 0.92) 100%
+  );
   z-index: 2;
-  color: #FFFFFF;
+}
+
+.dubai-banner-inner {
+  position: relative;
+  z-index: 3;
+  padding: 3.5rem 2rem;
+  max-width: 820px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
-.intl-dubai-badge {
+.dubai-banner-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(200, 155, 60, 0.16);
-  border: 1px solid #C89B3C;
-  color: #E4C675;
+  color: #F9E29D;
   font-family: var(--font-primary);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 0.45rem 1.1rem;
+  margin-bottom: 1.15rem;
+  background: rgba(11, 37, 69, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(217, 164, 65, 0.4);
+  padding: 0.45rem 1.25rem;
   border-radius: var(--radius-pill);
-  width: fit-content;
-  margin-bottom: 1.25rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.intl-dubai-title {
+.dubai-banner-heading {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-size: clamp(2rem, 4vw, 3.35rem);
   font-weight: 800;
   color: #FFFFFF;
-  line-height: 1.15;
+  line-height: 1.18;
   letter-spacing: -0.025em;
-  margin-bottom: 1rem;
-}
-
-.intl-dubai-desc {
-  font-family: var(--font-primary);
-  font-size: 1.02rem;
-  color: rgba(255, 255, 255, 0.82);
-  line-height: 1.65;
   margin-bottom: 2rem;
-  max-width: 460px;
+  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.65);
 }
 
-.intl-dubai-actions {
+.dubai-banner-actions {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.btn-gold-solid {
-  background: #C89B3C;
-  color: #111111;
+.btn-dubai-gold {
+  background: linear-gradient(135deg, #D9A441 0%, #F2C975 100%);
+  color: #0B2545;
   font-family: var(--font-primary);
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 700;
-  padding: 0.85rem 1.9rem;
+  padding: 0.85rem 2rem;
   border-radius: var(--radius-pill);
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   text-decoration: none;
   transition: all 0.35s ease;
-  box-shadow: 0 4px 18px rgba(200, 155, 60, 0.35);
+  box-shadow: 0 6px 22px rgba(217, 164, 65, 0.4);
 }
 
-.btn-gold-solid:hover {
-  background: #E4C675;
-  color: #111111;
+.btn-dubai-gold:hover {
+  background: linear-gradient(135deg, #F2C975 0%, #FFFFFF 100%);
+  color: #0B2545;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(200, 155, 60, 0.45);
+  box-shadow: 0 10px 28px rgba(217, 164, 65, 0.5);
 }
 
-.btn-gold-outline {
-  background: transparent;
+.btn-dubai-outline {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: #FFFFFF;
   font-family: var(--font-primary);
-  font-size: 15px;
-  font-weight: 700;
-  padding: 0.85rem 1.9rem;
+  font-size: 14.5px;
+  font-weight: 600;
+  padding: 0.85rem 1.8rem;
   border-radius: var(--radius-pill);
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   text-decoration: none;
   transition: all 0.35s ease;
 }
 
-.btn-gold-outline:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: #C89B3C;
-  color: #E4C675;
+.btn-dubai-outline:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #F9E29D;
+  color: #F9E29D;
   transform: translateY(-2px);
-}
-
-/* --------------------------------------------------------------------------
-   OTHER INTERNATIONAL DESTINATIONS GRID
-   -------------------------------------------------------------------------- */
-.intl-destinations-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.75rem;
-}
-
-.intl-dest-card {
-  background: #FFFFFF;
-  border: 1px solid #E3DED2;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(17, 17, 17, 0.04);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.intl-dest-card:hover {
-  transform: translateY(-6px);
-  border-color: #C89B3C;
-  box-shadow: 0 20px 45px rgba(200, 155, 60, 0.14), 0 4px 12px rgba(17, 17, 17, 0.06);
-}
-
-.intl-dest-img-wrap {
-  height: 220px;
-  position: relative;
-  overflow: hidden;
-  background: #242424;
-}
-
-.intl-dest-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.intl-dest-card:hover .intl-dest-img {
-  transform: scale(1.05);
-}
-
-.intl-dest-content {
-  padding: 1.75rem 1.65rem;
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-}
-
-.intl-dest-name {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: #111111;
-  line-height: 1.25;
-  margin-bottom: 0.5rem;
-  transition: color 0.3s ease;
-}
-
-.intl-dest-card:hover .intl-dest-name {
-  color: #C89B3C;
-}
-
-.intl-dest-desc {
-  font-family: var(--font-primary);
-  font-size: 0.92rem;
-  color: #666666;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  flex-grow: 1;
-}
-
-.intl-dest-card-footer {
-  border-top: 1px solid #EFEAE0;
-  padding-top: 1rem;
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.intl-dest-link {
-  font-family: var(--font-primary);
-  font-size: 14px;
-  font-weight: 700;
-  color: #111111;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.intl-dest-link svg {
-  color: #C89B3C;
-  transition: transform 0.3s ease;
-}
-
-.intl-dest-card:hover .intl-dest-link {
-  color: #C89B3C;
-}
-
-.intl-dest-card:hover .intl-dest-link svg {
-  transform: translateX(4px);
 }
 
 /* --------------------------------------------------------------------------
    RESPONSIVE STYLES
    -------------------------------------------------------------------------- */
-@media (max-width: 1024px) {
-  .intl-dubai-featured {
-    grid-template-columns: 1fr;
+@media (max-width: 991px) {
+  .intl-showcase-section {
+    padding: 4.5rem 0 4rem;
   }
-  
-  .intl-dubai-media {
-    min-height: 320px;
-    height: 320px;
+  .dubai-banner-card {
+    min-height: 360px;
   }
-  
-  .intl-dubai-media-overlay {
-    background: linear-gradient(
-      180deg, 
-      rgba(17, 17, 17, 0.1) 0%, 
-      rgba(17, 17, 17, 0.7) 60%, 
-      rgba(17, 17, 17, 0.98) 100%
-    );
-  }
-  
-  .intl-dubai-content {
-    padding: 2.5rem 2rem;
-  }
-  
-  .intl-destinations-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .dubai-banner-inner {
+    padding: 2.5rem 1.5rem;
   }
 }
 
 @media (max-width: 680px) {
   .intl-showcase-section {
-    padding: 4.5rem 0;
+    padding: 3.5rem 0 3rem;
   }
-  
-  .intl-dubai-content {
-    padding: 2rem 1.5rem;
+  .dubai-banner-card {
+    min-height: 320px;
+    border-radius: 20px;
   }
-  
-  .intl-dubai-actions {
+  .dubai-banner-inner {
+    padding: 2rem 1.25rem;
+  }
+  .dubai-banner-actions {
     flex-direction: column;
-    align-items: stretch;
     width: 100%;
+    gap: 0.75rem;
   }
-  
-  .intl-dubai-actions a {
+  .dubai-banner-actions a {
     width: 100%;
+    justify-content: center;
     text-align: center;
-  }
-  
-  .intl-destinations-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
   }
 }
 
@@ -3215,7 +3101,7 @@ h6 {
 .intro-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 5vw, 4.5rem);
+  gap: clamp(2rem, 4.5vw, 4rem);
   align-items: stretch;
 }
 
@@ -3224,6 +3110,7 @@ h6 {
   border-radius: var(--radius-2xl);
   overflow: visible;
   height: 100%;
+  min-height: 0;
   display: flex;
   flex-direction: column;
 }
@@ -3233,15 +3120,18 @@ h6 {
   border-radius: var(--radius-2xl);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
-  height: 100%;
   width: 100%;
+  height: 100%;
+  min-height: 0;
   flex: 1;
 }
 
 .intro-main-img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  min-height: 100%;
   object-fit: cover;
   display: block;
   transition: transform var(--transition-slow);
@@ -3304,19 +3194,46 @@ h6 {
   height: 100%;
 }
 
+.intro-content .eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.intro-content .section-title {
+  font-size: clamp(1.6rem, 2.1vw, 2.1rem);
+  line-height: 1.22;
+  margin-bottom: 0.9rem;
+}
+
+.intro-content .lead-text {
+  font-size: clamp(0.92rem, 0.95vw, 0.98rem);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.65rem;
+}
+
+.intro-content .intro-subtext,
+.intro-content p:not(.lead-text) {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
 .intro-features-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin: 1.75rem 0 2rem;
+  gap: 0.65rem 1.25rem;
+  margin: 1.2rem 0 1.5rem;
 }
 
 .intro-feature-item {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.55rem;
   font-family: var(--font-primary);
-  font-size: 15px;
+  font-size: 13.5px;
   font-weight: 600;
   color: var(--color-primary-dark);
 }
@@ -3324,39 +3241,41 @@ h6 {
 .intro-feature-item svg {
   color: var(--color-secondary);
   flex-shrink: 0;
+  width: 16px;
+  height: 16px;
 }
 
 .intro-cta-group {
   display: flex;
   align-items: center;
-  gap: 1.15rem;
+  gap: 0.85rem;
   flex-wrap: wrap;
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 .intro-cta-group .btn {
-  min-height: 52px;
-  padding: 0.95rem 2.2rem;
-  font-size: 0.96rem;
+  min-height: 44px;
+  padding: 0.65rem 1.6rem;
+  font-size: 0.88rem;
   font-weight: 600;
   border-radius: var(--radius-pill);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 0.6rem;
   transition: all var(--transition-smooth);
 }
 
 .intro-cta-group .btn-emerald {
   background: var(--color-primary);
   color: #FFFFFF;
-  box-shadow: 0 6px 20px -4px rgba(20, 121, 209, 0.35);
+  box-shadow: 0 4px 16px -3px rgba(20, 121, 209, 0.35);
 }
 
 .intro-cta-group .btn-emerald:hover {
   background: var(--color-primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 10px 26px -4px rgba(11, 37, 69, 0.40);
+  box-shadow: 0 8px 22px -3px rgba(11, 37, 69, 0.38);
   color: #FFFFFF;
 }
 
@@ -3370,16 +3289,17 @@ h6 {
   background: var(--color-primary);
   color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px -4px rgba(20, 121, 209, 0.30);
+  box-shadow: 0 6px 18px -3px rgba(20, 121, 209, 0.28);
 }
 
 @media (max-width: 991px) {
   .intro-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
   .intro-main-img-box {
-    min-height: 380px;
+    min-height: 360px;
+    height: 360px;
   }
   .intro-floating-badge {
     bottom: 16px;
@@ -3388,119 +3308,15 @@ h6 {
 }
 
 @media (max-width: 576px) {
+  .intro-main-img-box {
+    min-height: 280px;
+    height: 280px;
+  }
   .intro-features-list {
     grid-template-columns: 1fr;
   }
 }
 
-/* --------------------------------------------------------------------------
-   20. EXPERT CTA BANNER (BEFORE FOOTER)
-   -------------------------------------------------------------------------- */
-.expert-cta-section {
-  padding: 2.5rem 0 4.5rem;
-}
-
-.expert-cta-banner {
-  position: relative;
-  border-radius: var(--radius-2xl);
-  overflow: hidden;
-  padding: clamp(2.5rem, 4.5vw, 3.75rem) clamp(2rem, 5vw, 4.25rem);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2.5rem;
-  box-shadow: var(--shadow-lg);
-}
-
-.expert-cta-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.expert-cta-banner:hover .expert-cta-bg {
-  transform: scale(1.03);
-}
-
-.expert-cta-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(3, 31, 67, 0.92) 0%, rgba(5, 51, 110, 0.82) 50%, rgba(3, 31, 67, 0.65) 100%);
-  z-index: 2;
-}
-
-.expert-cta-content {
-  position: relative;
-  z-index: 3;
-  max-width: 720px;
-}
-
-.expert-cta-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3.2vw, 2.35rem);
-  font-weight: 600;
-  color: #FFFFFF;
-  margin-bottom: 0.65rem;
-  line-height: 1.25;
-  text-wrap: balance;
-}
-
-.expert-cta-subtitle {
-  font-family: var(--font-primary);
-  font-size: clamp(0.95rem, 1.4vw, 1.08rem);
-  color: rgba(255, 255, 255, 0.92);
-  margin: 0;
-  line-height: 1.6;
-  text-wrap: pretty;
-}
-
-.expert-cta-action {
-  position: relative;
-  z-index: 3;
-  flex-shrink: 0;
-}
-
-.expert-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-gold);
-  color: var(--color-dark);
-  font-family: var(--font-primary);
-  font-size: 15px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 1.05rem 2.4rem;
-  border-radius: var(--radius-md);
-  box-shadow: 0 10px 25px rgba(218, 162, 39, 0.35);
-  transition: all var(--transition-fast);
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.expert-cta-btn:hover {
-  background: var(--color-gold-light);
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 15px 30px rgba(218, 162, 39, 0.55);
-  color: var(--color-dark);
-}
-
-@media (max-width: 991px) {
-  .expert-cta-banner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.75rem;
-    padding: 2.5rem 2rem;
-  }
-  .expert-cta-overlay {
-    background: linear-gradient(180deg, rgba(3, 31, 67, 0.95) 0%, rgba(5, 51, 110, 0.85) 100%);
-  }
-}
 
 /* --------------------------------------------------------------------------
    21. EDITORIAL ARTICLE TYPOGRAPHY
@@ -3610,6 +3426,204 @@ h6 {
 
 .client-gallery-card:hover img {
   transform: scale(1.08);
+}
+
+/* ==========================================================================
+   22. INQUIRY POPUP MODAL (CONTACT FORM POPUP)
+   ========================================================================== */
+.inquiry-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+}
+
+.inquiry-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.inquiry-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 21, 48, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1;
+}
+
+.inquiry-modal-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 680px;
+  margin: auto;
+}
+
+.inquiry-modal-card {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: var(--radius-2xl);
+  padding: clamp(2rem, 4vw, 2.75rem);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(217, 164, 65, 0.25);
+  transform: scale(0.94) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.inquiry-modal.is-open .inquiry-modal-card {
+  transform: scale(1) translateY(0);
+}
+
+.inquiry-modal-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--color-surface-blue);
+  border: 1px solid rgba(11, 37, 69, 0.12);
+  color: var(--color-text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+
+.inquiry-modal-close:hover {
+  background: var(--color-dark);
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+  transform: rotate(90deg) scale(1.05);
+}
+
+.inquiry-modal-header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.inquiry-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold-dark, #B38217);
+  background: rgba(217, 164, 65, 0.12);
+  border: 1px solid rgba(217, 164, 65, 0.3);
+  padding: 0.3rem 0.9rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.65rem;
+}
+
+.inquiry-modal-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 0.4rem;
+  line-height: 1.2;
+}
+
+.inquiry-modal-subtitle {
+  font-family: var(--font-primary);
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.inquiry-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.25rem;
+}
+
+.inquiry-modal-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.inquiry-modal-form .form-label {
+  font-family: var(--font-primary);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 0.35rem;
+}
+
+.inquiry-modal-form .form-control {
+  font-family: var(--font-primary);
+  font-size: 0.92rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid rgba(11, 37, 69, 0.14);
+  background: #F8FAFC;
+  color: var(--color-text-main);
+  transition: all 0.25s ease;
+  width: 100%;
+}
+
+.inquiry-modal-form .form-control:focus {
+  outline: none;
+  background: #FFFFFF;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(20, 121, 209, 0.15);
+}
+
+.inquiry-modal-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.inquiry-submit-btn {
+  width: 100%;
+  padding: 0.95rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  box-shadow: 0 10px 25px rgba(20, 121, 209, 0.3);
+}
+
+.inquiry-privacy-note {
+  font-family: var(--font-primary);
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .inquiry-form-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+  .inquiry-modal-card {
+    padding: 1.75rem 1.25rem 1.5rem;
+  }
+  .inquiry-modal-close {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 36px;
+    height: 36px;
+  }
 }
 
 

@@ -13,11 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
   initStatsCounter();
 });
 
-// Refresh ScrollTrigger when all assets/images are loaded
+// Refresh ScrollTrigger when all assets/images are loaded or resized
 window.addEventListener('load', () => {
   if (typeof ScrollTrigger !== 'undefined') {
     ScrollTrigger.refresh();
   }
+});
+
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    if (typeof ScrollTrigger !== 'undefined') {
+      ScrollTrigger.refresh();
+    }
+  }, 250);
 });
 
 /* ==========================================================================
@@ -153,7 +163,7 @@ function initGsapAnimations() {
 }
 
 /* ==========================================================================
-   3. PINNED HORIZONTAL SCROLL (EXPLORE INDIA - DESKTOP)
+   3. PINNED HORIZONTAL SCROLL (EXPLORE INDIA - DESKTOP & MOBILE)
    ========================================================================== */
 function initHorizontalScroll() {
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
@@ -161,20 +171,43 @@ function initHorizontalScroll() {
   const horizontalSection = document.querySelector('.horizontal-scroll-section');
   const track = document.querySelector('.horizontal-track');
   
-  if (!horizontalSection || !track || window.innerWidth < 1024) return;
+  if (!horizontalSection || !track) return;
 
-  const getScrollDistance = () => track.scrollWidth - window.innerWidth + (window.innerWidth * 0.08);
+  // Clear any existing ScrollTriggers on this section
+  ScrollTrigger.getAll().forEach(st => {
+    if (st.vars && st.vars.trigger === horizontalSection) {
+      st.kill();
+    }
+  });
 
-  gsap.to(track, {
+  const getScrollDistance = () => {
+    const isMobile = window.innerWidth < 768;
+    const paddingOffset = isMobile ? 32 : window.innerWidth * 0.08;
+    return Math.max(0, track.scrollWidth - window.innerWidth + paddingOffset);
+  };
+
+  const horizontalTween = gsap.to(track, {
     x: () => -getScrollDistance(),
     ease: 'none',
     scrollTrigger: {
       trigger: horizontalSection,
       start: 'top top',
-      end: () => `+=${getScrollDistance()}`,
+      end: () => `+=${getScrollDistance() * (window.innerWidth < 768 ? 1.25 : 1.15)}`,
       pin: true,
-      scrub: 1,
+      scrub: 0.8,
+      anticipatePin: 1,
       invalidateOnRefresh: true,
+      refreshPriority: 1
+    }
+  });
+
+  // Re-calculate on image loads inside the track
+  const trackImages = track.querySelectorAll('img');
+  trackImages.forEach(img => {
+    if (!img.complete) {
+      img.addEventListener('load', () => {
+        ScrollTrigger.refresh();
+      }, { once: true });
     }
   });
 }

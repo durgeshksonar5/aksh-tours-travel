@@ -317,22 +317,51 @@
     margin-bottom: 0.85rem;
   }
   
-  /* Horizontal scroll section converted for touch mobile */
+  /* Horizontal scroll section for mobile & tablet */
+  .horizontal-scroll-section {
+    min-height: 100vh;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .horizontal-scroll-header {
+    margin-bottom: 1.25rem;
+    padding: 0 1rem;
+  }
+
   .horizontal-track-wrapper {
     height: auto;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding: 1.5rem 0;
+    width: 100%;
+    overflow: hidden;
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
   }
   
   .horizontal-track {
     padding: 0 1rem;
     gap: 1.25rem;
+    width: max-content;
+    will-change: transform;
   }
   
   .horizontal-card {
-    width: 280px;
-    height: 420px;
+    width: min(84vw, 320px);
+    height: clamp(380px, 54vh, 460px);
+    min-width: unset;
+    flex-shrink: 0;
+  }
+
+  .horizontal-card .card-overlay {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .horizontal-card .card-overlay h3 {
+    font-size: 1.35rem;
+    margin: 0.35rem 0;
   }
   
   /* Stats Grid */

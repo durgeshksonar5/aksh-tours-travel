@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFormValidation();
   initSearchFinder();
   initDestinationFilters();
+  initInquiryModal();
 });
 
 /* ==========================================================================
@@ -409,5 +410,95 @@ function initDestinationFilters() {
         window.ScrollTrigger.refresh();
       }
     });
+  });
+}
+
+/* ==========================================================================
+   9. INQUIRY POPUP MODAL (CONTACT / CUSTOM QUOTE MODAL)
+   ========================================================================== */
+function initInquiryModal() {
+  const modal = document.querySelector('.inquiry-modal');
+  const openTriggers = document.querySelectorAll('[data-open-inquiry], .open-inquiry-modal, .btn-dubai-outline, a[href="#inquiry-modal"], a[href^="contact.html?tour="]');
+  
+  if (!modal && !openTriggers.length) return;
+
+  function openModal(destinationName) {
+    if (!modal) return;
+
+    if (destinationName) {
+      const destSelect = modal.querySelector('#inquiry-destination, select[name="destination"]');
+      if (destSelect) {
+        let matched = false;
+        const searchLower = destinationName.toLowerCase();
+        
+        for (let i = 0; i < destSelect.options.length; i++) {
+          const optText = destSelect.options[i].text.toLowerCase();
+          const optVal = destSelect.options[i].value.toLowerCase();
+          if (optText.includes(searchLower) || optVal.includes(searchLower) || (searchLower.includes('dubai') && optVal.includes('dubai'))) {
+            destSelect.selectedIndex = i;
+            matched = true;
+            break;
+          }
+        }
+      }
+    }
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('no-scroll');
+
+    const firstInput = modal.querySelector('input:not([type="hidden"])');
+    if (firstInput) {
+      setTimeout(() => firstInput.focus(), 150);
+    }
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('no-scroll');
+  }
+
+  openTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      let dest = trigger.getAttribute('data-destination') || '';
+      if (!dest) {
+        const href = trigger.getAttribute('href') || '';
+        if (href.includes('tour=dubai') || href.includes('dest=dubai') || trigger.classList.contains('btn-dubai-outline')) {
+          dest = 'Dubai';
+        } else if (href.includes('tour=')) {
+          dest = href.split('tour=')[1];
+        }
+      }
+      
+      openModal(dest);
+    });
+  });
+
+  const closeBtns = modal ? modal.querySelectorAll('.inquiry-modal-close, [data-close-inquiry]') : [];
+  closeBtns.forEach((btn) => {
+    btn.addEventListener('click', closeModal);
+  });
+
+  if (modal) {
+    const backdrop = modal.querySelector('.inquiry-modal-backdrop');
+    if (backdrop) {
+      backdrop.addEventListener('click', closeModal);
+    }
+    
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && modal.classList.contains('is-open')) {
+      closeModal();
+    }
   });
 }
